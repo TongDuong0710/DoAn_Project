@@ -1,0 +1,53 @@
+.outlet {
+  padding: 70px 330px 90px 240px;
+  min-height: 100vh;
+}
+
+.toastClassName {
+  color: var(--primary-color);
+}
+.grow-font-size {
+  background-color: #fff;
+}
+.fancy-progress-bar {
+  background-color: var(--primary-color);
+}
+
+@media (max-width: 1300px) {
+  .outlet {
+    padding: 70px 0px 90px 240px;
+  }
+  .side-playList {
+    background-color: var(--sidePlayList);
+  }
+}
+
+@media (max-width: 1200px) {
+  .outlet {
+    padding: 70px 0px 90px 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .outlet {
+    padding: 70px 0px 90px 0px;
+  }
+}
+
+.wrapper {
+  background-color: var(--background);
+  overflow-x: hidden;
+}
+
+.wrapper.zingAwards {
+  background: url("/public/svg/zma.svg");
+  background-size: 1920px auto;
+  background-attachment: fixed;
+}
+
+.wrapper.jack {
+  /* background: url("/images/jack.jpg"); */
+  background: url('/public/images/jack.jpg');
+  background-size: 1920px auto;
+  background-attachment: fixed;
+}

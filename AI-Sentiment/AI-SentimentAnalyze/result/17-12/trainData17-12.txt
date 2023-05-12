@@ -1,0 +1,131 @@
+D:\HocReact\CNN\AI-Sentiment\AI-SentimentAnalyze\venv\Scripts\python.exe "D:/Pycharm/PyCharm 2022.2.3/plugins/python/helpers/pydev/pydevd.py" --multiprocess --qt-support=auto --client 127.0.0.1 --port 62949 --file D:\HocReact\CNN\AI-Sentiment\AI-SentimentAnalyze\m_CNN_2C_model.py 
+Connected to pydev debugger (build 222.4345.23)
+2022-12-17 17:32:22.040094
+14304
+id         0
+comment    0
+tag        0
+dtype: int64
+tokenizer Text:
+['đã từng tổn thương đến tận cùng của nổi đau . chỉ mong vết thương này đã lành .... 10 năm trôi qa rồi vẫn nhớ cái ngày vừa nghe bài này vừa khóc ... tình cảm ấy giờ chỉ còn là kỉ niệm'
+ '2022 xem lại buồn '
+ 'bài hát đúng như chuyện tình của mình bây giờ, em ấy đã theo một người trưởng thành hơn, thành công hơn và cho em nhiều niềm vui hơn là sự nhạt nhẽo ở bên tôi'
+ ...
+ 'tâm trạng u ám mãi từ hôm a za bài này lại thêm mv quá xuất sắc nữa '
+ 'nghe nhạc ông này mà buồn chắc nước mắt nước mũi tèm lem quá'
+ 'lần sau anh mrsiro ra bài nào đỡ đỡ buồn nha anhhh']
+input data.shape  (14304, 300)
+training sample:  10298
+validation sample:  2861
+test sample:  1145
+Found 11247 unique tokens.
+vocabulary_size size:
+11248
+embedding_matrix size:
+[[0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]
+ ...
+ [0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]]
+embedding_layer
+2022-12-17 17:32:28.386639: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_1 (InputLayer)           [(None, 300)]        0           []                               
+                                                                                                  
+ embedding (Embedding)          (None, 300, 300)     3374400     ['input_1[0][0]']                
+                                                                                                  
+ reshape (Reshape)              (None, 300, 300, 1)  0           ['embedding[0][0]']              
+                                                                                                  
+ conv2d (Conv2D)                (None, 298, 1, 298)  268498      ['reshape[0][0]']                
+                                                                                                  
+ conv2d_1 (Conv2D)              (None, 297, 1, 298)  357898      ['reshape[0][0]']                
+                                                                                                  
+ conv2d_2 (Conv2D)              (None, 296, 1, 298)  447298      ['reshape[0][0]']                
+                                                                                                  
+ conv2d_3 (Conv2D)              (None, 296, 1, 298)  447298      ['reshape[0][0]']                
+                                                                                                  
+ conv2d_4 (Conv2D)              (None, 296, 1, 298)  447298      ['reshape[0][0]']                
+                                                                                                  
+ max_pooling2d (MaxPooling2D)   (None, 1, 1, 298)    0           ['conv2d[0][0]']                 
+                                                                                                  
+ max_pooling2d_1 (MaxPooling2D)  (None, 1, 1, 298)   0           ['conv2d_1[0][0]']               
+                                                                                                  
+ max_pooling2d_2 (MaxPooling2D)  (None, 1, 1, 298)   0           ['conv2d_2[0][0]']               
+                                                                                                  
+ max_pooling2d_3 (MaxPooling2D)  (None, 1, 1, 298)   0           ['conv2d_3[0][0]']               
+                                                                                                  
+ max_pooling2d_4 (MaxPooling2D)  (None, 1, 1, 298)   0           ['conv2d_4[0][0]']               
+                                                                                                  
+ concatenate (Concatenate)      (None, 5, 1, 298)    0           ['max_pooling2d[0][0]',          
+                                                                  'max_pooling2d_1[0][0]',        
+                                                                  'max_pooling2d_2[0][0]',        
+                                                                  'max_pooling2d_3[0][0]',        
+                                                                  'max_pooling2d_4[0][0]']        
+                                                                                                  
+ flatten (Flatten)              (None, 1490)         0           ['concatenate[0][0]']            
+                                                                                                  
+ dropout (Dropout)              (None, 1490)         0           ['flatten[0][0]']                
+                                                                                                  
+ dense (Dense)                  (None, 3)            4473        ['dropout[0][0]']                
+                                                                                                  
+==================================================================================================
+Total params: 5,347,163
+Trainable params: 5,347,163
+Non-trainable params: 0
+__________________________________________________________________________________________________
+train_len:
+0
+Epoch 1/20
+81/81 [==============================] - 120s 1s/step - loss: 0.1864 - acc: 0.6738 - val_loss: 0.1601 - val_acc: 0.7270
+Epoch 2/20
+81/81 [==============================] - 120s 1s/step - loss: 0.1560 - acc: 0.7394 - val_loss: 0.1516 - val_acc: 0.7462
+Epoch 3/20
+81/81 [==============================] - 131s 2s/step - loss: 0.1519 - acc: 0.7501 - val_loss: 0.1520 - val_acc: 0.7434
+Epoch 4/20
+81/81 [==============================] - 124s 2s/step - loss: 0.1253 - acc: 0.7948 - val_loss: 0.1072 - val_acc: 0.8410
+Epoch 5/20
+81/81 [==============================] - 119s 1s/step - loss: 0.0976 - acc: 0.8581 - val_loss: 0.0941 - val_acc: 0.8598
+Epoch 6/20
+81/81 [==============================] - 124s 2s/step - loss: 0.0898 - acc: 0.8787 - val_loss: 0.0863 - val_acc: 0.8871
+Epoch 7/20
+81/81 [==============================] - 119s 1s/step - loss: 0.0846 - acc: 0.8889 - val_loss: 0.0863 - val_acc: 0.8902
+Epoch 8/20
+81/81 [==============================] - 119s 1s/step - loss: 0.0811 - acc: 0.8999 - val_loss: 0.0886 - val_acc: 0.8791
+Epoch 9/20
+81/81 [==============================] - 120s 1s/step - loss: 0.0781 - acc: 0.9072 - val_loss: 0.0926 - val_acc: 0.8679
+Epoch 10/20
+81/81 [==============================] - 118s 1s/step - loss: 0.0721 - acc: 0.9184 - val_loss: 0.0926 - val_acc: 0.8682
+Epoch 11/20
+81/81 [==============================] - 119s 1s/step - loss: 0.0693 - acc: 0.9237 - val_loss: 0.0826 - val_acc: 0.8923
+Epoch 12/20
+81/81 [==============================] - 119s 1s/step - loss: 0.0659 - acc: 0.9260 - val_loss: 0.0862 - val_acc: 0.8822
+Epoch 13/20
+81/81 [==============================] - 119s 1s/step - loss: 0.0667 - acc: 0.9299 - val_loss: 0.0892 - val_acc: 0.8756
+Epoch 14/20
+81/81 [==============================] - 122s 2s/step - loss: 0.0614 - acc: 0.9396 - val_loss: 0.0828 - val_acc: 0.8868
+Epoch 15/20
+81/81 [==============================] - 137s 2s/step - loss: 0.0586 - acc: 0.9439 - val_loss: 0.0778 - val_acc: 0.8983
+Epoch 16/20
+81/81 [==============================] - 124s 2s/step - loss: 0.0558 - acc: 0.9479 - val_loss: 0.0784 - val_acc: 0.8955
+Epoch 17/20
+81/81 [==============================] - 119s 1s/step - loss: 0.0524 - acc: 0.9548 - val_loss: 0.0785 - val_acc: 0.8889
+Epoch 18/20
+81/81 [==============================] - 119s 1s/step - loss: 0.0530 - acc: 0.9511 - val_loss: 0.0796 - val_acc: 0.8909
+Epoch 19/20
+81/81 [==============================] - 119s 1s/step - loss: 0.0534 - acc: 0.9526 - val_loss: 0.0771 - val_acc: 0.8934
+Epoch 20/20
+81/81 [==============================] - 120s 1s/step - loss: 0.0504 - acc: 0.9548 - val_loss: 0.0961 - val_acc: 0.8546
+36/36 [==============================] - 3s 83ms/step - loss: 0.1007 - acc: 0.8507
+Loss: 0.10073971003293991
+Accuracy: 85.06550192832947
+2022-12-17 18:13:02.090422
+Time:
+0:40:40.050328
+
+Process finished with exit code 0

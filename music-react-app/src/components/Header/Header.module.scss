@@ -1,0 +1,260 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 240px;
+  right: 330px;
+
+  height: 70px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+
+  padding: 0 60px;
+  z-index: 10;
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-left: 32px;
+
+    .header-login {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      & img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+    }
+
+    .header-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--background-white);
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    .header-theme {
+      color: var(--primary-color);
+    }
+  }
+}
+.header-changePage {
+  button {
+    background: transparent;
+    border: none;
+    color: rgba(256, 256, 256, 0.5);
+    font-size: 24px;
+
+    padding: 0 4px;
+  }
+
+  .header-backPage,
+  .header-nextPage {
+    margin-right: 16px;
+    cursor: pointer;
+  }
+}
+
+.header-search-group {
+  display: flex;
+  align-items: center;
+  background-color: var(--background-white);
+  border-radius: 20px;
+
+  flex: 1;
+  max-width: 540px;
+  position: relative;
+
+  .header-suggest {
+    position: absolute;
+    z-index: 1;
+    padding: 13px 16px;
+    display: none;
+
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: auto;
+
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: var(--background-color);
+
+    &.show {
+      display: block;
+    }
+
+    .header-suggest-title {
+      font-size: 14px;
+      padding: 10px;
+    }
+
+    .header-suggest-box {
+      .header-suggest-item {
+        display: flex;
+        align-items: center;
+        padding: 8px 10px;
+        font-size: 14px;
+
+        & span {
+          margin-right: 8px;
+          color: var(--text-decs-color);
+        }
+
+        &:hover {
+          cursor: pointer;
+          background-color: var(--background-white);
+        }
+
+        .header-suggest-text {
+          color: #fff;
+        }
+      }
+    }
+
+    .suggestion {
+      .suggestion-list {
+        border-top: 1px solid var(--border-primary);
+        display: none;
+
+        &.show {
+          display: block;
+        }
+        .suggestion-item {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          padding: 4px 8px;
+
+          border-radius: 4px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: var(--background-white);
+          }
+
+          .suggestion-item-image {
+            & img {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+            }
+          }
+
+          .suggestion-item-info {
+            margin-left: 8px;
+            .suggestion-item-info-name {
+              font-size: 14px;
+              margin-bottom: 4px;
+            }
+
+            .suggestion-item-info-singer {
+              font-size: 12px;
+              color: var(--text-decs-color);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .header-search-input {
+    flex: 1;
+
+    input {
+      font-size: 16px;
+      background-color: transparent;
+      width: 100%;
+
+      border: none;
+      outline: none;
+      color: #fff;
+      font-size: 15px;
+
+      &::placeholder {
+        color: #d5d5d5;
+      }
+    }
+  }
+  .header-search-icon {
+    font-size: 26px;
+    color: #fff;
+    padding: 4px 8px;
+    display: flex;
+    border-top-left-radius: 50%;
+  }
+
+  .header-search-clear {
+    font-size: 18px;
+    padding: 4px 12px;
+    cursor: pointer;
+    color: var(--text-decs-color);
+  }
+}
+
+@media (max-width: 1300px) {
+  .header {
+    right: 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    left: 70px;
+  }
+}
+
+@media (max-width: 992px) {
+  .header-changePage {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    right: 0;
+    left: 0px;
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    padding: 0 16px;
+    .header-search-group {
+      .header-search-icon {
+        font-size: 22px;
+      }
+    }
+
+    .header-right {
+      margin-left: 16px;
+
+      .header-icon {
+        width: 36px;
+        height: 36px;
+      }
+    }
+  }
+}
